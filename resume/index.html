@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <nav>
-        <ul>
-          <li><a href="../resume/index.html">Resume Home</a></li>
-          <li><a href="../index.html">Main Page</a></li>
-          <li><a href="../projects/index.html">Project</a></li>
-          <li><a href="../contacts/index.html">Contacts</a></li>
-          <li><a href="https://github.com/Jassyq" target="_blank">Profile</a></li>
-          
-        </ul>
-      </nav>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../resume_style.css" />
+  <title>CV - Jason Qin</title>
+  <!-- Link to your CSS file if you have one -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
-<h1>Resume</h1>
-
 <body>
-    <header>
-        <h1>Jason Qin</h1>
-        <p>Email: jas@example.com | GitHub: github.com/jas</p>
-      </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="../resume/index.html" class="current">CV</a></li>
+        <li><a href="../contacts/index.html">Contacts</a></li>
+        <li><a href="https://github.com/Jassyq" target="_blank">Github</a></li>
+      </ul>
+    </nav>
+    <h2>Jason Qin</h2>
+    <p>Email: <a href="mailto:jas@example.com">jas@example.com</a> | GitHub: <a href="https://github.com/jas" target="_blank">github.com/jas</a></p>
+  </header>
+  
+  <main>
+    <!-- You can introduce your resume with a title -->
+    <section id="resume-intro">
+      <h2>Resume</h2>
+    </section>
     
-      <section>
-        <h2>Education</h2>
-        <article>
-          <h3>University of XYZ</h3>
-          <p>B.S. in Data Science</p>
-          <time>2023 – 2027</time>
-        </article>
-      </section>
+    <section id="education">
+      <h2>Education</h2>
+      <article>
+        <h3>University of XYZ</h3>
+        <p>B.S. in Data Science</p>
+        <time datetime="2023-2027">2023 – 2027</time>
+      </article>
+    </section>
     
-      <section>
-        <h2>Work Experience</h2>
-        <article>
-          <h3>Software Intern – ABC Tech</h3>
-          <time>Summer 2024</time>
-          <ul>
-            <li>Worked on frontend using React</li>
-            <li>Improved user onboarding by 30%</li>
-          </ul>
-        </article>
-      </section>
-    
-      <section>
-        <h2>Skills</h2>
+    <section id="work">
+      <h2>Work Experience</h2>
+      <article>
+        <h3>Software Intern – ABC Tech</h3>
+        <time datetime="2024-06">Summer 2024</time>
         <ul>
-          <li>Python, HTML, CSS, JavaScript</li>
-          <li>Machine Learning, Data Visualization</li>
+          <li>Worked on frontend using React</li>
+          <li>Improved user onboarding by 30%</li>
         </ul>
-      </section>
+      </article>
+    </section>
     
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python, HTML, CSS, JavaScript</li>
+        <li>Machine Learning, Data Visualization</li>
+      </ul>
+    </section>
+  </main>
+  
+  <footer>
+    <!-- Add footer content if needed -->
+    <p>&copy; 2024 Jason Qin</p>
+  </footer>
 </body>
 </html>

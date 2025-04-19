@@ -1,43 +1,5 @@
 
 /* ------------------------------
-   Global Resume Styles
------------------------------- */
-body {
-  font-family: Arial, sans-serif;
-  padding: px;
-}
-
-/* ------------------------------
-   Header & Navigation
------------------------------- */
-header {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-header h2 {
-  font-size: 2.5em;
-  margin-bottom: 0.25em;
-}
-
-header p {
-  font-size: 1em;
-  color: #666;
-}
-
-header p a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.3s ease;
-}
-
-header p a:hover {
-  border-bottom-color: #333;
-}
-
-
-/* ------------------------------
    Main Content (Resume Sections)
 ------------------------------ */
 main {

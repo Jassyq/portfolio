@@ -1,5 +1,5 @@
 :root {
-  /* your accent and border colors */
+  /* accent and border colors */
   --color-accent: oklch(65% 50% 0);
   --border-color: oklch(50% 10% 200 / 40%);
 }
@@ -23,7 +23,7 @@ nav {
   
   display: flex;
   justify-content: space-evenly;
-  gap: 89px;               /* space between items */
+  gap: 89px;               
   margin-bottom: 1rem;
   border-bottom: 1px solid var(--border-color);
 }
@@ -31,8 +31,8 @@ nav {
 nav a {
   display: inline-block;  
   flex: 1;          
-  position: relative;       /* for ::after */
-  padding: 0.5em 0;         /* vertical padding only */
+  position: relative;       
+  padding: 0.5em 0;         
   text-decoration: none;
   color: inherit;
   text-align: center;
@@ -43,11 +43,11 @@ nav a.current::after,
 nav a:hover::after {
   content: '';
   position: absolute;
-  bottom: -2px;             /* tweak vertical offset */
+  bottom: -2px;            
   left: 50%;
   transform: translateX(-50%);
-  width: 200%;               /* % of link width; bump to 80% or 100% if you want it longer */
-  height: 4px;              /* thickness of the underline */
+  width: 200%;               
+  height: 4px;             
   background-color: currentColor;
 }
 
@@ -55,10 +55,10 @@ nav a.current {
   color: rgb(45, 167, 74);
 }
 nav a:hover {
-  color: rgb(223, 152, 210);  /* text turns tomato on hover */
+  color: rgb(223, 152, 210);  
 }
 nav a:hover::after {
-  background-color: rgb(223, 152, 210);  /* underline matches */
+  background-color: rgb(223, 152, 210);  
 }
 
 
@@ -106,9 +106,7 @@ body {
 }
 
 img {
-  /* keep images from ever overflowing their container */
   max-width: 100%;
-  /* preserve their intrinsic aspect-ratio */
   height: auto;
 }
 
@@ -117,11 +115,11 @@ img {
 /* -------------------------------- */
 .color-scheme {
   position: absolute;
-  top: 1rem;            /* distance from the top edge */
-  right: 1rem;          /* distance from the right edge */
-  font-size: 0.8rem;    /* make it a bit smaller */
-  font-family: inherit; /* match your site’s font */
-  z-index: 1000;        /* sit on top of your content */
+  top: 1rem;            
+  right: 1rem;         
+  font-size: 0.8rem;    
+  font-family: inherit; 
+  z-index: 1000;        
 }
 
 /* ensure the <select> uses the same font as the label */

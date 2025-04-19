@@ -1,10 +1,10 @@
 console.log("IT’S ALIVE!");
 
 const pages = [
-  { url: "../index.html", title: "Home" },
-  { url: "../projects/index.html", title: "Projects" },
-  { url: "../resume/index.html", title: "CV" },
-  { url: "../contacts/index.html", title: "Contacts" },
+  { url: "", title: "Home" },
+  { url: "projects/", title: "Projects" },
+  { url: "resume/", title: "CV" },
+  { url: "contacts/", title: "Contacts" },
   { url: "https://github.com/Jassyq", title: "Github" },
 ];
 

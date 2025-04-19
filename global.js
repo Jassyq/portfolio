@@ -53,14 +53,12 @@ document.body.insertAdjacentHTML(
 );
 
 const select = document.querySelector('.color-scheme select');
-
 // 2) On page load, restore previous setting (if any)
 if (localStorage.getItem('colorScheme')) {
   const saved = localStorage.getItem('colorScheme');
   document.documentElement.style.colorScheme = saved;
   select.value = saved;
 }
-
 // 3) When the user changes the dropdown…
 select.addEventListener('input', function (event) {
   const scheme = event.target.value;                 // "light dark", "light", or "dark"

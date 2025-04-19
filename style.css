@@ -1,56 +1,71 @@
-
 :root {
-      --color-accent: oklch(65% 50% 0);  
-    }
+  /* your accent and border colors */
+  --color-accent: oklch(65% 50% 0);
+  --border-color: oklch(50% 10% 200 / 40%);
+}
 
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-      line-height: 1.1;
-      text-wrap: balance;
-    }
-       
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
 h1 {
-      font-size: 400%;
-    }
+  font-size: 400%;
+}
 
-nav{
-      margin-bottom: 0;
-      border-bottom: 1px solid oklch(80% 3% 200);
-    }
-
-nav ul{
-      display: flex;
-      list-style: none;
-      justify-content: center;
-      gap: 100px;
-    
-      margin: 0;
-      padding: 0;
-    }
-
-nav li {
-      margin: 0;
-      padding: 0;
-    }
+/* -------------------------------- */
+/* Navigation Bar                   */
+/* -------------------------------- */
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: var(--border-color);
+  
+  display: flex;
+  justify-content: space-evenly;
+  gap: 89px;               /* space between items */
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
 
 nav a {
-      display: flex;
-      flex: 1;
-      text-decoration: none;
-      color: inherit;
-      text-align: center;
-      padding: 0.5em;
-      
-    }
+  display: inline-block;  
+  flex: 1;          
+  position: relative;       /* for ::after */
+  padding: 0.5em 0;         /* vertical padding only */
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+}
+
+/* center‑aligned underline */
+nav a.current::after,
+nav a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;             /* tweak vertical offset */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;               /* % of link width; bump to 80% or 100% if you want it longer */
+  height: 4px;              /* thickness of the underline */
+  background-color: currentColor;
+}
 
 nav a.current {
-      border-bottom: 0.4em solid #55bd39;
-      
-    }
+  color: rgb(45, 167, 74);
+}
+nav a:hover {
+  color: rgb(223, 152, 210);  /* text turns tomato on hover */
+}
+nav a:hover::after {
+  background-color: rgb(223, 152, 210);  /* underline matches */
+}
 
-nav a:hover{
-      border-bottom: 0.4em solid var(--color-accent);
-    }
 
+
+/* -------------------------------- */
+/* Form styling                     */
+/* -------------------------------- */
 form {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -62,6 +77,9 @@ form button {
   grid-column: 1 / -1;
 }
 
+/* -------------------------------- */
+/* Projects grid                    */
+/* -------------------------------- */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
@@ -69,17 +87,44 @@ form button {
 
 .projects article {
   display: grid;
-  grid-template-rows: subgrid; 
-  grid-row: span 3;           
-  gap: 1em;                   
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 1em;
 }
 
 .projects article h2 {
-  margin: 0; 
+  margin: 0;
 }
 
+/* -------------------------------- */
+/* Page wrapper                     */
+/* -------------------------------- */
 body {
-      max-width: 100ch;
-      margin-inline: auto;
-      padding: 50px;
-    }
+  max-width: 100ch;
+  margin-inline: auto;
+  padding: 50px;
+}
+
+img {
+  /* keep images from ever overflowing their container */
+  max-width: 100%;
+  /* preserve their intrinsic aspect-ratio */
+  height: auto;
+}
+
+/* -------------------------------- */
+/* Page Color                       */
+/* -------------------------------- */
+.color-scheme {
+  position: absolute;
+  top: 1rem;            /* distance from the top edge */
+  right: 1rem;          /* distance from the right edge */
+  font-size: 0.8rem;    /* make it a bit smaller */
+  font-family: inherit; /* match your site’s font */
+  z-index: 1000;        /* sit on top of your content */
+}
+
+/* ensure the <select> uses the same font as the label */
+.color-scheme select {
+  font-family: inherit;
+}

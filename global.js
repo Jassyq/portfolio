@@ -8,35 +8,42 @@ const pages = [
   { url: "https://github.com/Jassyq", title: "Github" },
 ];
 
-const nav = document.createElement("nav");
+// Step 3.1: Create <nav> and prepend to <body>
+let nav = document.createElement('nav');
 document.body.prepend(nav);
 
-// track whether we ever found a matching link
-let foundCurrent = false;
+// Step 3.1: Compute BASE_PATH for local vs GitHub Pages
+const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+  ? "/"                // Local dev
+  : "/portfolio/";     // ← your repo name on GH Pages
 
+// Step 3.2: Loop pages, build <a>, handle rel paths & externals
 for (let p of pages) {
-  const a = document.createElement("a");
-  a.href = p.url;
-  a.textContent = p.title;
+  let url   = p.url;
+  let title = p.title;
 
-  // exact‐match check
-  if (a.host === location.host && a.pathname === location.pathname) {
-    a.classList.add("current");
-    foundCurrent = true;
-  }
+  // prefix relative URLs with our BASE_PATH
+  url = url.startsWith('http') ? url : BASE_PATH + url;
 
-  // external links open in new tab
+  // create the link element
+  let a = document.createElement('a');
+  a.href        = url;
+  a.textContent = title;
+
+  // open external links in a new tab
   if (a.host !== location.host) {
-    a.target = "_blank";
-    a.rel = "noopener noreferrer";
+    a.target = '_blank';
+    a.rel    = 'noopener noreferrer';
   }
 
-  nav.append(a);
-}
+  // highlight the current page
+  a.classList.toggle(
+    'current',
+    a.host === location.host && a.pathname === location.pathname
+  );
 
-// **fallback** to Home if nothing matched**
-if (!foundCurrent) {
-  nav.querySelector("a").classList.add("current");
+  // append into our nav
+  nav.append(a);
 }
 
 document.body.insertAdjacentHTML(

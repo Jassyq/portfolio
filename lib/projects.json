@@ -1,43 +1,51 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
+        "title": "League of Legends Game Length Predictor",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore esse quasi deserunt deleniti iste alias at qui eveniet neque recusandae inventore ad tempore error itaque, earum, blanditiis voluptas totam praesentium!"
+        "description": "Performed linear regression on League of Legends game data to predict game length based on various in-game statistics."
     },
     {
-        "title": "Enim voluptatibus architecto nihil?",
+        "title": "San Diego MTS Bus Wait Time Analysis",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Minima facilis optio, laborum voluptates, aliquid sequi, sapiente ipsa unde perspiciatis cumque omnis illo dicta consequuntur deserunt consequatur molestiae minus esse! Ipsum, cumque exercitationem quidem blanditiis obcaecati laboriosam delectus repudiandae."
+        "description": "Analyzed San Diego MTS bus wait times using historical data to identify patterns and improve scheduling efficiency."
     },
     {
-        "title": "Distinctio magni veniam facere!",
+        "title": "Loan Applications",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Doloribus ipsum alias distinctio adipisci, iure voluptates ea aut eveniet dolor neque ut, sapiente veritatis, et aspernatur! Officiis obcaecati, repellat placeat molestiae iste aspernatur, voluptas aut doloremque, minima autem optio."
+        "description": "Developed a machine learning model to predict loan application outcomes based on applicant data, improving approval accuracy and reducing risk."
     },
     {
-        "title": "Ducimus vero odio mollitia.",
+        "title": "Language Model",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Assumenda id reiciendis quidem ipsam quis nisi, voluptas doloribus animi ab repudiandae blanditiis deleniti eius laborum a ad dignissimos tenetur? Modi sit autem facilis dignissimos et, molestias distinctio at necessitatibus?"
+        "description": "Created a custom language model using deep learning techniques to generate human-like text, enhancing natural language processing capabilities."
     },
     {
-        "title": "Repellat iste commodi nemo?",
+        "title": "Imagine Converter",
+        "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Aperiam animi maiores, dolore incidunt eaque quibusdam? Eos repellat nulla earum neque tempore vitae omnis temporibus rem, alias saepe. Voluptates voluptatum autem ipsam mollitia vitae ut placeat distinctio impedit molestias!"
+        "description": "Developed an image-to-text converter that utilizes advanced OCR techniques to extract text from images, facilitating data entry and document digitization."
     },
     {
-        "title": "Quam dolorum dignissimos ab!",
+        "title": "Simple Number Recognizer",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Tenetur cum quis sit esse, perferendis debitis, repudiandae accusamus quo suscipit non culpa numquam, illo hic deleniti! Vel blanditiis ad, consequatur temporibus architecto reiciendis incidunt eos veritatis accusamus, optio modi!"
+        "description": "Built a simple number recognition system using machine learning algorithms to identify handwritten digits, demonstrating basic image classification techniques."
     },
     {
-        "title": "Veritatis dicta quibusdam cum?",
+        "title": "Taylor Swift Song Recommender",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eaque recusandae quisquam unde non reprehenderit placeat suscipit, consectetur debitis maiores blanditiis modi reiciendis quibusdam ipsum iure eveniet animi, perferendis fugit tempore accusamus doloremque dolor earum consequuntur. Iste, doloribus illum."
+        "description": "Developed a song recommendation system using collaborative filtering techniques to suggest Taylor Swift songs based on user preferences and listening history."
     },
     {
-        "title": "Saepe reiciendis velit praesentium.",
+        "title": "Meoterite Landing Simulator",
+        "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Id nesciunt explicabo beatae possimus numquam temporibus sunt corrupti nostrum vel nihil a libero fugit nam ad, ab ea dicta iste debitis excepturi! Ullam, earum. Provident doloribus quisquam cumque mollitia."
+        "description": "Created a simulation of meteorite landings using physics-based modeling to study impact dynamics and predict landing sites, contributing to planetary science research."
     },
     {
         "title": "Provident sunt tempora cumque.",

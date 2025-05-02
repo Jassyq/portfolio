@@ -94,6 +94,21 @@ form button {
 
 .projects article h2 {
   margin: 0;
+  
+}
+.project-year {
+  margin-top: -2.5em;
+  font-size: 0.8rem;
+  font-style: italic;
+  font-family: Baskerville, serif;
+  font-variant-numeric: oldstyle-nums;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  overflow: visible;
 }
 
 /* -------------------------------- */
@@ -126,3 +141,5 @@ img {
 .color-scheme select {
   font-family: inherit;
 }
+
+

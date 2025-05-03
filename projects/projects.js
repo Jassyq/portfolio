@@ -6,29 +6,32 @@ document.querySelector('h1').textContent = `${projects.length} Projects`;
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
+// Pie Chart
+let data = [
+  { value: 1, label: 'apples' },
+  { value: 2, label: 'oranges' },
+  { value: 3, label: 'mangos' },
+  { value: 4, label: 'pears' },
+  { value: 5, label: 'limes' },
+  { value: 5, label: 'cherries' },
+];
+
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-let arc = d3.arc().innerRadius(0).outerRadius(50)({
-    startAngle: 0,
-    endAngle: 2 * Math.PI,
-  });
-d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
-let data = [1, 2];
-let colors = ['gold', 'purple'];
-let total = 0;
-for (let d of data) {
-  total += d;
-}
-let angle = 0;
-let arcData = [];
-for (let d of data) {
-    let endAngle = angle + (d / total) * 2 * Math.PI;
-    arcData.push({ startAngle: angle, endAngle });
-    angle = endAngle;
-  }
-let arcs = arcData.map((d) => arcGenerator(d));
-arcs.forEach((arc, idx) => {
-    d3.select('svg')
-      .append('path')
-      .attr('d', arc)
-      .attr('fill',colors[idx]) 
-})
+let sliceGenerator = d3.pie().value((d) => d.value);
+let arcData = sliceGenerator(data);
+arcData.forEach((d, idx) => {
+  d3.select('svg')
+    .append('path')
+    .attr('d', arcGenerator(d))
+    .attr('fill', colors(idx));
+});
+
+//legend
+let legend = d3.select('.legend');
+data.forEach((d, idx) => {
+  legend
+    .append('li')
+    .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
+    .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
+});

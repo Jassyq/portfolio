@@ -83,13 +83,14 @@ form button {
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  column-gap: 1em;
 }
 
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
-  gap: 1em;
+  grid-row: span 4;              /* span exactly those 4 parent rows */
+  gap: 0.5em;   
 }
 
 .projects article h2 {
@@ -97,8 +98,8 @@ form button {
   
 }
 .project-year {
-  margin-top: -2.5em;
-  font-size: 0.8rem;
+  margin-top: -1.5em;
+  font-size: 0.9rem;
   font-style: italic;
   font-family: Baskerville, serif;
   font-variant-numeric: oldstyle-nums;

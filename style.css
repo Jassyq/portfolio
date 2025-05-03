@@ -108,9 +108,34 @@ form button {
 
 
 #projects-pie-plot {
-  max-width: 20em;
+  flex: 0 0 auto;            /* no grow, no shrink */
+  width: 20em;               /* whatever starting width you had */
+  height: auto;              /* keep the aspect ratio of viewBox */
   margin-block: 2em;
   overflow: visible;
+}
+
+/* fade out non-hovered slices on hover */
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+#projects-pie-plot path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: #FFD700 !important;
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+.container {
+  display: flex;              /* row layout */
+  align-items: center;        /* vertical-center chart + legend */
+  gap: 2rem;                  /* space between SVG and legend */
 }
 
 /* -------------------------------- */
@@ -121,11 +146,12 @@ form button {
    The box around all the legend items
 ────────────────────────────────────────────────────────────── */
 .legend {
-  list-style: none;                 /* remove bullets */
-  display: flex;                    /* single line */
-  flex-wrap: nowrap;                /* no wrapping */
-  align-items: center;              /* vertical centre */
-  justify-content: space-between;   /* spread items across full width */
+  display: flex; 
+  flex: 1 1 auto;  
+  flex-wrap: wrap;
+  list-style: none;                 /* single line */
+  align-items: center; 
+  justify-content: space-between;             /* vertical centre */
   gap: 1rem;                        /* gap between items */
   padding: 0.5rem 1rem;             /* inner spacing */
   border: 1px solid #ccc;           /* light grey border */
@@ -138,19 +164,22 @@ form button {
    Each item: circle + label + value
 ────────────────────────────────────────────────────────────── */
 .legend-item {
-  display: flex;
+  display: flex;      /* row layout */
   align-items: center;
   gap: 0.5rem;       /* small gap between the swatch & text */
-  margin: 0;         /* override any default <li> margins */
+  margin: 0; 
+  
 }
 
 /* little circle that picks up the JS colour */
-.legend-item .swatch {
-  display: inline-block;           /* so width/height apply */
+.swatch {
+  display: inline-block;   
+  flex: 0 1 1em;        /* so width/height apply */
   width: 1em;                      /* 1 “character” wide */
   aspect-ratio: 1 / 1;             /* always a perfect square */
   background-color: var(--color);  /* from your inline style */
-  border-radius: 50%;              /* make it a circle */
+  border-radius: 50%;   
+  min-width: 0;              /* make it a circle */
 }
 
 /* make the “(n)” a little more subdued */
@@ -160,8 +189,19 @@ form button {
   margin-left: 0.25rem;
 }
 
-.container {
-  display: flex;
+
+/* searchbar */
+.searchBar {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  margin: 1.5rem auto;        /* vertical and auto-horizontal centering */
+  padding: 0.75rem 1rem;      /* comfortable click/tap area */
+  font-size: 1rem;            /* readable text */
+  border: 1px solid var(--border-color); /* consistent border */
+  border-radius: 4px;         /* subtle rounding */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* slight depth */
+  display: block;             /* ensure block-level for width */
 }
 
 /* -------------------------------- */
@@ -194,5 +234,4 @@ img {
 .color-scheme select {
   font-family: inherit;
 }
-
 

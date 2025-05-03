@@ -105,11 +105,63 @@ form button {
   font-variant-numeric: oldstyle-nums;
 }
 
+
+
 #projects-pie-plot {
   max-width: 20em;
   margin-block: 2em;
-
   overflow: visible;
+}
+
+/* -------------------------------- */
+/* Legend                           */
+/* -------------------------------- */
+
+/* ──────────────────────────────────────────────────────────────
+   The box around all the legend items
+────────────────────────────────────────────────────────────── */
+.legend {
+  list-style: none;                 /* remove bullets */
+  display: flex;                    /* single line */
+  flex-wrap: nowrap;                /* no wrapping */
+  align-items: center;              /* vertical centre */
+  justify-content: space-between;   /* spread items across full width */
+  gap: 1rem;                        /* gap between items */
+  padding: 0.5rem 1rem;             /* inner spacing */
+  border: 1px solid #ccc;           /* light grey border */
+  border-radius: 4px;               /* slight rounding */
+  background-color: #fff;           /* optional white fill */
+  margin: 1rem 0;                   /* outer spacing */
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Each item: circle + label + value
+────────────────────────────────────────────────────────────── */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;       /* small gap between the swatch & text */
+  margin: 0;         /* override any default <li> margins */
+}
+
+/* little circle that picks up the JS colour */
+.legend-item .swatch {
+  display: inline-block;           /* so width/height apply */
+  width: 1em;                      /* 1 “character” wide */
+  aspect-ratio: 1 / 1;             /* always a perfect square */
+  background-color: var(--color);  /* from your inline style */
+  border-radius: 50%;              /* make it a circle */
+}
+
+/* make the “(n)” a little more subdued */
+.legend-item em {
+  font-style: normal;
+  opacity: 0.7;
+  margin-left: 0.25rem;
+}
+
+.container {
+  display: flex;
 }
 
 /* -------------------------------- */

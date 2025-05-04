@@ -7,28 +7,38 @@ let query = '';
 const projectsContainer = document.querySelector('.projects');
 
 function updateView() {
-  let filtered = allProjects.filter(project => {
-    let values = Object.values(project).join('\n').toLowerCase();
-    return values.includes(query.toLowerCase());
-  });
-
+  // start with all projects
+  let filtered = allProjects;
+  // apply year slice filter first, if any
   if (selectedIndex !== -1) {
-    const rolledData = d3.rollups(
-      filtered,
+    // get years in order for mapping index
+    const years = d3.rollups(
+      allProjects,
       v => v.length,
       d => d.year
-    );
-    const data = rolledData.map(([year, count]) => ({ value: count, label: year }));
-    const selectedYear = data[selectedIndex].label;
+    ).map(([year]) => year);
+    const selectedYear = years[selectedIndex];
     filtered = filtered.filter(p => p.year === selectedYear);
   }
-
+  // then apply search filter on that subset
+  if (query) {
+    const q = query.toLowerCase();
+    filtered = filtered.filter(p => {
+      const text = [
+        p.title,
+        p.description,
+        p.year.toString(),
+        ...(p.tags || [])
+      ].join(' ').toLowerCase();
+      return text.includes(q);
+    });
+  }
+  // render list and reapply highlights
   renderProjects(filtered, projectsContainer, 'h2');
-
   d3.selectAll('svg path')
-    .classed('selected', (_, idx) => idx === selectedIndex);
+    .classed('selected', (_, i) => i === selectedIndex);
   d3.select('.legend').selectAll('li')
-    .classed('selected', (_, idx) => idx === selectedIndex);
+    .classed('selected', (_, i) => i === selectedIndex);
 }
 
 // Refactor pie and legend rendering into a function
@@ -84,20 +94,7 @@ updateView();
 //search
 let searchInput = document.querySelector('.searchBar');
 searchInput.addEventListener('input', (event) => {
-  // update query value
+  // update query and refresh view
   query = event.target.value;
-  // filter projects
-  let filteredProjects = allProjects.filter((project) => {
-    let values = Object.values(project).join('\n').toLowerCase();
-    return values.includes(query.toLowerCase());
-  });
-  // render filtered projects
-  renderProjects(filteredProjects, projectsContainer, 'h2');
-  // update pie chart based on search filter
-  renderPieChart(filteredProjects);
-  // reapply highlight after redraw
-  d3.selectAll('svg path')
-    .classed('selected', (_, idx) => idx === selectedIndex);
-  d3.select('.legend').selectAll('li')
-    .classed('selected', (_, idx) => idx === selectedIndex);
+  updateView();
 });

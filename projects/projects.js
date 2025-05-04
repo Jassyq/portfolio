@@ -27,6 +27,8 @@ function updateView() {
 
   d3.selectAll('svg path')
     .classed('selected', (_, idx) => idx === selectedIndex);
+  d3.select('.legend').selectAll('li')
+    .classed('selected', (_, idx) => idx === selectedIndex);
 }
 
 // Refactor pie and legend rendering into a function
@@ -56,6 +58,7 @@ function renderPieChart(projectsGiven) {
     svg.append('path')
       .attr('d', arcGenerator(d))
       .attr('fill', colors(i))
+      .classed('selected', (_, idx) => idx === selectedIndex)
       .on('click', () => {
         selectedIndex = selectedIndex === i ? -1 : i;
         updateView();
@@ -66,6 +69,7 @@ function renderPieChart(projectsGiven) {
   data.forEach((d, i) => {
     legend.append('li')
       .classed('legend-item', true)
+      .classed('selected', i === selectedIndex)
       .attr('style', `--color:${colors(i)}`)
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
@@ -91,4 +95,9 @@ searchInput.addEventListener('input', (event) => {
   renderProjects(filteredProjects, projectsContainer, 'h2');
   // update pie chart based on search filter
   renderPieChart(filteredProjects);
+  // reapply highlight after redraw
+  d3.selectAll('svg path')
+    .classed('selected', (_, idx) => idx === selectedIndex);
+  d3.select('.legend').selectAll('li')
+    .classed('selected', (_, idx) => idx === selectedIndex);
 });

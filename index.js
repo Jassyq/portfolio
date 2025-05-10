@@ -3,7 +3,9 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 const projects = await fetchJSON('./lib/projects.json');
 const latestProjects = projects.slice(0, 3);
 const projectsContainer = document.querySelector('.projects');
-renderProjects(latestProjects, projectsContainer, 'h2');
+if (projectsContainer) {
+  renderProjects(latestProjects, projectsContainer, 'h2');
+}
 const githubData = await fetchGitHubData('jassyq');
 const profileStats = document.querySelector('#profile-stats');
 

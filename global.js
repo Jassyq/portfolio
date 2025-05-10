@@ -5,7 +5,9 @@ const pages = [
   { url: "projects/", title: "Projects" },
   { url: "resume/", title: "CV" },
   { url: "contacts/", title: "Contacts" },
+  { url: "meta/", title: "Meta" },
   { url: "https://github.com/Jassyq", title: "Github" },
+  
 ];
 
 // Step 3.1: Create <nav> and prepend to <body>

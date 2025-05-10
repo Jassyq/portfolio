@@ -241,4 +241,177 @@ img {
   font-family: inherit;
 }
 
+.stats {
+  display: grid;
+  /* exactly six equal columns */
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0;
+}
+
+.stats dt {
+  /* place all labels on row 1 */
+  grid-row: 1;
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #555;
+  text-align: center;
+}
+
+.stats dd {
+  /* place all values on row 2 */
+  grid-row: 2;
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* optional caption beneath the grid */
+.stats + .stats-caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1rem;
+}
+
+/* Style for gridlines */
+.gridlines line {
+  stroke: #ccc; /* Light gray color for gridlines */
+  stroke-width: 1px; /* Thin stroke width */
+  stroke-dasharray: 4 2; /* Dashed lines for subtle appearance */
+  opacity: 0.5; /* Reduce opacity for less prominence */
+}
+
+/* Style for <dl> with the .info class */
+dl.info {
+  display: grid; /* Use grid layout */
+  grid-template-columns: auto 1fr; /* Labels in the first column, values in the second */
+  gap: 0.5rem; /* Add spacing between rows */
+  margin: 0; /* Remove default margins */
+  padding: 0.5rem; /* Add some padding */
+  border: 1px solid var(--border-color); /* Optional: Add a border */
+  border-radius: 4px; /* Optional: Rounded corners */
+  background-color: #f9f9f9; /* Optional: Light background */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info dt {
+  font-size: 0.85rem; /* Smaller font for labels */
+  color: #555; /* Less prominent color for labels */
+  text-align: left; /* Align labels to the left */
+  
+}
+
+dl.info dd {
+  font-size: 1rem; /* Larger font for values */
+  font-weight: bold; /* Make values stand out */
+  margin: 0; /* Remove default margins */
+  text-align: left; /* Align values to the left */
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Style for tooltips */
+.tooltip {
+  position: fixed; /* Fixed position to stay in the viewport */
+  top: 1em; /* Default position (will be updated dynamically) */
+  left: 1em; /* Default position (will be updated dynamically) */
+  z-index: 1000; /* Ensure it appears above other elements */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  padding: 1rem; /* Add padding for spacing */
+  border: 1px solid var(--border-color); /* Add a border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  pointer-events: none; /* Prevent the tooltip from interfering with mouse events */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s ease, transform 0.2s ease; /* Smooth fade-in and movement */
+}
+
+.tooltip.show {
+  opacity: 1; /* Make the tooltip visible */
+  transform: translateY(0); /* Reset any transform applied during hiding */
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
+
+/* Style for the language breakdown container */
+#language-breakdown {
+  display: grid; /* Use grid layout for better alignment */
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Add spacing between items */
+  max-width: 800px; /* Limit the width of the container */
+  margin: 2rem auto; /* Center the container with vertical spacing */
+  padding: 1rem; /* Add padding inside the container */
+  border: 1px solid var(--border-color); /* Add a border */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+/* Style for each language breakdown item */
+#language-breakdown dt {
+  font-size: 1rem; /* Slightly larger font for language names */
+  font-weight: bold; /* Make language names stand out */
+  text-align: center; /* Center-align the text */
+  color: black; /* Set the title color to black */
+  text-transform: uppercase; /* Make the text uppercase */
+}
+
+/* Style for the line count and percentage */
+#language-breakdown dd {
+  font-size: 1.5rem; /* Larger font for line counts */
+  font-weight: bold; /* Make line counts stand out */
+  text-align: center; /* Center-align the text */
+  margin: 0; /* Remove default margins */
+  color: #333; /* Darker color for better readability */
+}
+
+/* Add spacing between the language name and the line count */
+#language-breakdown dt + dd {
+  margin-top: 0.5rem; /* Add spacing between <dt> and <dd> */
+}
+
+/* Add hover effect for better interactivity */
+#language-breakdown dt:hover,
+#language-breakdown dd:hover {
+  color: var(--color-accent); /* Highlight on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  transition: transform 0.2s ease, color 0.2s ease; /* Smooth transition */
+}
 

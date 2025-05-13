@@ -85,7 +85,7 @@ function renderPieChart(projectsGiven) {
   });
 }
 
-let allProjects = await fetchJSON('/lib/projects.json');
+let allProjects = await fetchJSON('../lib/projects.json');
 document.querySelector('h1').textContent = `${allProjects.length} Projects`;
 
 renderPieChart(allProjects);

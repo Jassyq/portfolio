@@ -3,7 +3,8 @@
         "title": "League of Legends Game Length Predictor",
         "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Performed linear regression on League of Legends game data to predict game length based on various in-game statistics."
+        "description": "Performed linear regression on League of Legends game data to predict game length based on various in-game statistics.",
+        "url": "https://jassyq.github.io/LeagueOfLegends-Data-Report/"
     },
     {
         "title": "San Diego MTS Bus Wait Time Analysis",
@@ -48,10 +49,11 @@
         "description": "Created a simulation of meteorite landings using physics-based modeling to study impact dynamics and predict landing sites, contributing to planetary science research."
     },
     {
-        "title": "Provident sunt tempora cumque.",
-        "year": "2023",
+        "title": "Boston Bike Route Overview",
+        "year": "2025",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Dolorem ducimus vero magnam, veniam sed sit error quam consequuntur possimus laboriosam natus, mollitia quibusdam eum nihil, quisquam saepe qui nisi. In pariatur architecto corrupti velit provident qui, dignissimos nobis."
+        "description": "Analyzed and visualized bike route data in Boston to identify popular paths and suggest improvements for cycling infrastructure, promoting sustainable transportation.",
+        "url": "https://jassyq.github.io/bikers/"
     },
     {
         "title": "Non vero quas aspernatur?",

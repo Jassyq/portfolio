@@ -8,29 +8,48 @@
   </head>
   <body>
     <h1>Meta</h1>
+
+    <div style="display: flex; align-items: baseline; margin-bottom: 1em;">
+      <label style="flex: 1; display: flex; align-items: baseline; gap: 0.5em;">
+        Show commits until:
+        <input type="range" id="commit-progress" min="0" max="100" value="100" style="flex: 2;">
+        <time id="commit-time" style="margin-left: auto;"></time>
+      </label>
+    </div>
+    
     <h2>Summary</h2>
-    <div id="stats"></div>
+    <dl id="stats" class="stats"></dl>
 
     <h2>Commits By Time of Day</h2>
-    <div id="chart"></div>
 
-    <dl id="commit-tooltip" class="info tooltip" hidden>
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank"></a>
-        </dd>
-      
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
-      
-        <!-- Add: Time, author, lines edited -->
-    </dl>
-    <p id="selection-count">No commits selected</p>
-    <dl id="language-breakdown" class="stats"></dl>
+    <!-- scrolly wrapper starts -->
+    <div id="scrolly-1">
+      <!-- left-side explanatory text -->
+      <div id="scatter-story">
+        <p>Here’s where you can introduce the chart: what you want the reader to notice, why the time-of-day distribution matters, etc.</p>
+      </div>
 
+      <!-- right-side interactive chart and brush-updated elements -->
+      <div id="scatter-plot">
+        <div id="chart"></div>
+        <dl id="commit-tooltip" class="info tooltip" hidden>
+          <dt>Commit</dt>
+          <dd>
+            <a href="" id="commit-link" target="_blank"></a>
+            <div class="line"></div>
+          </dd>
+          <dt>Date</dt>
+          <dd id="commit-date"></dd>
+          <!-- Add: Time, author, lines edited -->
+        </dl>
+        <p id="selection-count">No commits selected</p>
+        <dl id="language-breakdown" class="stats"></dl>
+        <dl id="files"></dl>
+      </div>
+    </div>
+    <!-- scrolly wrapper ends -->
 
     <script src="main.js" type="module" defer></script>
     <script src="../global.js" type="module" defer></script>
-
   </body>
 </html>

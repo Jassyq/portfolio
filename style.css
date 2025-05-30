@@ -243,32 +243,45 @@ img {
 
 .stats {
   display: grid;
-  /* exactly six equal columns */
+  /* 6 columns, 2 rows: each label/value pair in a column */
   grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: auto;
-  gap: 1.5rem;
+  grid-template-rows: auto 1fr;
+  gap: 0 2rem; /* No row gap, only column gap */
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0;
 }
 
 .stats dt {
-  /* place all labels on row 1 */
+  /* Each label in its own column, row 1 */
   grid-row: 1;
+  /* Place each dt in its own column */
+  grid-column: auto;
   margin: 0;
+  padding: 0;
   font-size: 0.85rem;
   text-transform: uppercase;
   color: #555;
   text-align: center;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .stats dd {
-  /* place all values on row 2 */
+  /* Each value in its own column, row 2 */
   grid-row: 2;
+  /* Place each dd in its own column */
+  grid-column: auto;
   margin: 0;
+  padding: 0;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
+  margin-top: 0.2rem; /* Reduce space between label and value */
+  min-width: 0;
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 
 /* optional caption beneath the grid */
@@ -346,6 +359,10 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
+  @starting-style {
+    r: 0;
+  }
+  
 }
 
 circle:hover {
@@ -415,3 +432,62 @@ circle.selected {
   transition: transform 0.2s ease, color 0.2s ease; /* Smooth transition */
 }
 
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+
+  dt {
+    grid-column: 1;
+  }
+
+  dd {
+    grid-column: 2;
+  }
+}
+
+.loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  background: var(--color, steelblue); /* Use --color if set, fallback to steelblue */
+  border-radius: 50%;
+}
+
+dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
